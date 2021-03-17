@@ -5,6 +5,9 @@ This is an AWS Lambda function written in Python that can help you check the EC2
 I developed and deployed this function using https://www.serverless.com/. But you can choose to deployed using any other preferred options such as AWS CodeDeploy or AWS CloudFormation. Alternatively, you can follow the link below to deploy the Lambda function as a .zip file archive
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
+## Environment
+The Lambda function has no external dependencies. It can be configured with an optional environment variable (CHECK_REFRESH_SECONDS) to control the cash refresh rate. By default, CHECK_REFRESH_SECONDS = 60 seconds.
+
 ## Output
 Find below a sample of data resturned by the Lambda function
 ```
