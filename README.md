@@ -1,12 +1,12 @@
 ## Overview
-This is an AWS Lambda function written in Python that can help you check the EC2 fault tolerance state in your AWS account. The check counts EC2 instances that are configured with CloudWatch auto recovery alarms and EC2 instances associated with Auto Scaling Groups. It reports the EC2 recovery ratio across all EC2 instances in running status hosted in the same AWS account where the the Lambda function is deployed
+This is an AWS Lambda function written in Python 2.7 that can help you check the EC2 fault tolerance state in your AWS account. The check counts EC2 instances that are configured with CloudWatch auto recovery alarms and EC2 instances associated with Auto Scaling Groups. It reports the EC2 recovery ratio across all EC2 instances in running status hosted in the same AWS account where the the Lambda function is deployed
 
 ## Deployment
 I developed and deployed this function using https://www.serverless.com/. But you can choose to deployed using any other preferred options such as AWS CodeDeploy or AWS CloudFormation. Alternatively, you can follow the link below to deploy the Lambda function as a .zip file archive<br/>
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
 ## Environment
-The Lambda function has no external dependencies. It can be configured with an optional environment variable (CHECK_REFRESH_SECONDS) to control the cash refresh rate. By default, CHECK_REFRESH_SECONDS = 60 seconds.
+The Lambda function has no external dependencies other than Python 2.7. It can be configured with an optional environment variable (CHECK_REFRESH_SECONDS) to control the cash refresh rate. By default, CHECK_REFRESH_SECONDS = 60 seconds.
 
 ## Output
 Find below a sample of data resturned by the Lambda function
