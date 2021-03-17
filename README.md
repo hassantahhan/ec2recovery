@@ -3,7 +3,7 @@ Do you know how much EC2 resiliency you have built in your AWS account?<br/>
 
 Do you know how many EC2 instances in your environment can recover from an underlying host issue or corrupted file system?<br/>
 
-This is an AWS Lambda function written in Python 2.7 that can help you check the EC2 fault tolerance state in your AWS account. The check counts EC2 instances that are configured with CloudWatch auto recovery alarms and EC2 instances associated with Auto Scaling Groups. It reports the EC2 recovery ratio across all EC2 instances in running status hosted in the same AWS account where the the Lambda function is deployed.<br/>
+This is an AWS Lambda function written in Python that can help you check the EC2 fault tolerance state in your AWS account. The check counts EC2 instances that are configured with CloudWatch auto recovery alarms and EC2 instances associated with Auto Scaling Groups. It reports the EC2 recovery ratio across all EC2 instances in running status hosted in the same AWS account where the the Lambda function is deployed.<br/>
 
 EC2 Auto Scaling Groups are a better option to use than CloudWatch automatic recovery alarms, because the former can offer resiliency across Availability Zones. In all cases, the two recovery mechanisms should not be used together. Hence, if the Lambda function finds an EC2 instance to be associated with an Auto Scaling Group, then it ignores the state of its CloudWatch alarm configuration.
 
