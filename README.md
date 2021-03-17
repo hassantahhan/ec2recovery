@@ -2,7 +2,7 @@
 This is an AWS Lambda function written in Python 2.7 that can help you check the EC2 fault tolerance state in your AWS account. The check counts EC2 instances that are configured with CloudWatch auto recovery alarms and EC2 instances associated with Auto Scaling Groups. It reports the EC2 recovery ratio across all EC2 instances in running status hosted in the same AWS account where the the Lambda function is deployed.
 
 ## Deployment
-I developed and deployed this function using https://www.serverless.com/. But you can choose to deployed using any other preferred option such as AWS CodeDeploy or AWS CloudFormation. Alternatively, you can follow the link below to deploy the Lambda function as a .zip file archive.<br/>
+I deployed the Lambda function in my AWS account using https://www.serverless.com/ and provided the serverless.yml for your reference. However, you can choose to deployed using any other preferred option such as AWS CodeDeploy or AWS CloudFormation. Alternatively, you can follow the link below to deploy the Lambda function as a .zip file archive.<br/>
 Reference link: https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
 ## Environment
