@@ -1,0 +1,24 @@
+service: ec2RecoveryCheck
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python2.7
+  lambdaHashingVersion: 20201221
+  stage: dev
+  region: ap-southeast-2
+  iam:
+    role:
+      managedPolicies:
+        - 'arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess'
+
+functions:
+  ec2recovery:
+    handler: handler.check_ec2_recovery
+    environment:
+      CHECK_REFRESH_SECONDS: 60
+    events:
+      - httpApi:
+          path: /ec2recovery
+          method: get
