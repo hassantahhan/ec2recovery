@@ -16,7 +16,7 @@ Find below a sample of data resturned by the Lambda function
    "check_last_update": "2021-03-17T00:28:00.219935", 
    "check_status_code": 200, 
    "ec2_instance_counts": {
-      "Auto_Scaling_group_instance_count": 5, 
+      "auto_scaling_group_instance_count": 5, 
       "cloud_watch_alarm_instance_count": 1, 
       "running_instance_count": 7
    }, 
