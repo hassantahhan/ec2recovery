@@ -5,6 +5,25 @@ This is an AWS Lambda function written in Python that can help you check the EC2
 I developed and deployed this function using https://www.serverless.com/. But you can choose to deployed using any other preferred options such as AWS CodeDeploy or AWS CloudFormation. Alternatively, you can follow the link below to deploy the Lambda function as a .zip file archive
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
+## Output
+Find below a sample of data resturned by the Lambda function
+```
+{
+   "check_account_id": "111111111111", 
+   "check_last_update": "2021-03-17T00:28:00.219935", 
+   "check_status_code": 200, 
+   "ec2_instance_counts": {
+      "Auto_Scaling_group_instance_count": 5, 
+      "cloud_watch_alarm_instance_count": 1, 
+      "running_instance_count": 7
+   }, 
+   "ec2_recovery_ratios": {
+      "auto_scaling_group_recovery_ratio": 0.71, 
+      "cloud_watch_alarm_recovery_ratio": 0.14, 
+      "overall_recovery_ratio": 0.86
+   }
+}
+```
 ## Regional Scalability using Auto Scaling Groups 
 Auto Scaling Groups can help you automatically manage your scalability and resilency needs across Availability Zones in a single Region. Follow the link below to know more about why and how to associate your EC2 instances with Auto Scaling Groups
 https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html
