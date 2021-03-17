@@ -15,9 +15,11 @@ provider:
 
 functions:
   ec2recovery:
+    description: Check for EC2 fault tolerance coverage ratio in account
     handler: handler.check_ec2_recovery
+    timeout: 10
     environment:
-      CHECK_REFRESH_SECONDS: 60
+      CHECK_REFRESH_SECONDS: 300
     events:
       - httpApi:
           path: /ec2recovery

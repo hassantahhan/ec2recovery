@@ -5,7 +5,7 @@ import decimal
 import datetime
 
 check_last_result = {}
-check_refresh_seconds = 60
+check_refresh_seconds = 300  # 5 minutes
 check_last_update = datetime.datetime.now()
 
 def check_ec2_recovery(event, context):
@@ -33,7 +33,7 @@ def get_ec2_recovery_statistics(check_account_id, check_last_update):
 
     instance_counts = {
         'running_instance_count': len(running_instances),
-        'Auto_Scaling_group_instance_count': len(auto_scaling_instances),
+        'auto_scaling_group_instance_count': len(auto_scaling_instances),
         'cloud_watch_alarm_instance_count': len(alarm_instances)
     }
 
