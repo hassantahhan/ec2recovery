@@ -16,7 +16,7 @@ Reference link: https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 The Lambda function has no external dependencies other than Python 2.7. The Lambda handler method is named check_ec2_recovery(). The suggested access level is the AmazonEC2ReadOnlyAccess managed policy. The suggested timeout limit is 10 seconds. The function can be configured with an optional environment variable (CHECK_REFRESH_SECONDS) to control the cache refresh rate, which is set to 5 minutes by default. 
 
 ## Output
-Find below a sample of data resturned by the Lambda function
+Find below a sample of the Lambda function output
 ```
 {
    "check_account_id": "111111111111", 
