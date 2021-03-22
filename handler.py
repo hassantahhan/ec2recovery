@@ -8,25 +8,26 @@ check_last_result = {}
 check_refresh_seconds = 300  # 5 minutes
 check_last_update = datetime.datetime.now()
 
-def check_ec2_recovery(event, context):
+def handler_name(event, context):
+    return get_ec2_recovery_stats(context.invoked_function_arn.split(':')[4])
+
+def get_ec2_recovery_stats(check_account_id):
     global check_last_result
     global check_refresh_seconds
     global check_last_update
 
     if os.environ.get('CHECK_REFRESH_SECONDS'):
         check_refresh_seconds = os.environ.get('CHECK_REFRESH_SECONDS')
-    
-    check_account_id = context.invoked_function_arn.split(':')[4]
 
     elapsed_seconds = (datetime.datetime.now() - check_last_update).total_seconds()
 
     if len(check_last_result) == 0 or elapsed_seconds > check_refresh_seconds:
         check_last_update = datetime.datetime.now()
-        check_last_result = get_ec2_recovery_statistics(check_account_id, check_last_update)
+        check_last_result = refresh_ec2_recovery_stats(check_account_id, check_last_update)
             
     return check_last_result
 
-def get_ec2_recovery_statistics(check_account_id, check_last_update):
+def refresh_ec2_recovery_stats(check_account_id, check_last_update):
     running_instances = list_running_instances()
     auto_scaling_instances = list_auto_scaling_instances()
     alarm_instances = list_alarm_instances(auto_scaling_instances)

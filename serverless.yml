@@ -1,4 +1,4 @@
-service: ec2RecoveryCheck
+service: EC2RecoveryCheck
 
 frameworkVersion: '2'
 
@@ -16,7 +16,7 @@ provider:
 functions:
   ec2recovery:
     description: Check for EC2 fault tolerance coverage in an AWS account
-    handler: handler.check_ec2_recovery
+    handler: handler.handler_name
     timeout: 10
     environment:
       CHECK_REFRESH_SECONDS: 300
