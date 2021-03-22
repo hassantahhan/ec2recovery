@@ -2,6 +2,11 @@ service: EC2RecoveryCheck
 
 frameworkVersion: '2'
 
+package:
+  individually: true
+  exclude:
+    - ./**
+
 provider:
   name: aws
   runtime: python2.7
@@ -17,6 +22,9 @@ functions:
   ec2recovery:
     description: Check for EC2 fault tolerance coverage in an AWS account
     handler: handler.handler_name
+    package:
+      include:
+        - handler.py
     timeout: 10
     environment:
       CHECK_REFRESH_SECONDS: 300
