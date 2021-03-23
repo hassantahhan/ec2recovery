@@ -16,7 +16,7 @@ Reference link: https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 The Lambda function has no external dependencies other than Python 3.8. The suggested access level is the AmazonEC2ReadOnlyAccess managed policy. The suggested timeout limit is 10 seconds. The function can be configured with an optional environment variable (CHECK_REFRESH_SECONDS) to control the cache refresh rate, which is set to 5 minutes by default. 
 
 ## Testing
-The core logic (other than the handler method) can be tested locally without need for Lambda deployment. I provided test.py and requirements.txt to help you run the EC2 resiliency check locally. You still need to have your AWS access credentials in .aws\credentials for the test script to work. 
+The core logic (other than the handler method) can be tested locally without the need for Lambda deployment. I provided two files (test.py and requirements.txt) to help you install and run the EC2 resiliency check locally. You still need to have your AWS access credentials in .aws\credentials for the test script to work. 
 
 ## Output
 Find below a sample of the Lambda function output
