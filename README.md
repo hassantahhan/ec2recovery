@@ -13,7 +13,7 @@ Alternatively, you can follow the link below to deploy the Lambda function as a 
 Reference link: https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
 ## Environment
-The Lambda function has no external dependencies other than Python 2.7. The suggested access level is the AmazonEC2ReadOnlyAccess managed policy. The suggested timeout limit is 10 seconds. The function can be configured with an optional environment variable (CHECK_REFRESH_SECONDS) to control the cache refresh rate, which is set to 5 minutes by default. 
+The Lambda function has no external dependencies other than Python 3.8. The suggested access level is the AmazonEC2ReadOnlyAccess managed policy. The suggested timeout limit is 10 seconds. The function can be configured with an optional environment variable (CHECK_REFRESH_SECONDS) to control the cache refresh rate, which is set to 5 minutes by default. 
 
 ## Output
 Find below a sample of the Lambda function output
