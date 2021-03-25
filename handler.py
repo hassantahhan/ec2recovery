@@ -17,7 +17,7 @@ def get_ec2_recovery_stats():
     global check_last_update
 
     if os.environ.get('CHECK_REFRESH_SECONDS'):
-        check_refresh_seconds = os.environ.get('CHECK_REFRESH_SECONDS')
+        check_refresh_seconds = float(os.environ.get('CHECK_REFRESH_SECONDS'))
 
     elapsed_seconds = (datetime.datetime.now() - check_last_update).total_seconds()
 
