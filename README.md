@@ -8,7 +8,7 @@ This is an AWS Lambda function written in Python that can help you check the EC2
 EC2 Auto Scaling Groups are a better option to use than CloudWatch automatic recovery alarms, because the former can offer resiliency across Availability Zones. In all cases, the two recovery mechanisms should not be used together. Hence, if the Lambda function finds an EC2 instance to be associated with an Auto Scaling Group, then it ignores the state of its CloudWatch alarm configuration.
 
 ## Deployment
-I deployed the Lambda function in my AWS account using https://www.serverless.com/ and provided the serverless.yml for your reference. However, you can choose to deployed using any other preferred option such as AWS CodeDeploy or AWS CloudFormation.<br/>
+I deployed the Lambda function in my AWS test account using https://www.serverless.com/ and provided the serverless.yml for your reference. However, you can choose to deployed using any other preferred option such as AWS CodeDeploy or AWS CloudFormation.<br/>
 Alternatively, you can follow the link below to deploy the Lambda function as a .zip file archive.<br/>
 Reference link: https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
@@ -22,18 +22,19 @@ The core logic (other than the handler method) can be tested locally without the
 Find below a sample of the Lambda function output
 ```
 {
-   "check_account_id": "111111111111", 
-   "check_last_update": "2021-03-17T00:28:00.219935", 
-   "check_status_code": 200, 
+   "check_account_id": "111111111111",
+   "check_last_update": "2021-03-17T00:28:00.219935",
+   "check_region_code": "ap-southeast-2",
+   "check_status_code": 200,
    "ec2_instance_counts": {
-      "auto_scaling_group_instance_count": 5, 
-      "cloud_watch_alarm_instance_count": 1, 
+      "auto_scaling_group_instance_count": 5,
+      "cloud_watch_alarm_instance_count": 1,
       "running_instance_count": 7
-   }, 
+   },
    "ec2_recovery_ratios": {
-      "auto_scaling_group_recovery_ratio": 0.71, 
-      "cloud_watch_alarm_recovery_ratio": 0.14, 
-      "overall_recovery_ratio": 0.86
+      "auto_scaling_group_recovery_ratio": 0.714,
+      "cloud_watch_alarm_recovery_ratio": 0.143,
+      "overall_recovery_ratio": 0.857
    }
 }
 ```
