@@ -18,7 +18,7 @@ The Lambda function has no external dependencies other than Python 3.8. The sugg
 ## Testing
 The core logic (other than the handler method) can be tested locally without the need for Lambda deployment. I provided two files (test.py and requirements.txt) to help you install and run the EC2 resiliency check locally. You still need to have your AWS access credentials in .aws\credentials for the test script to work. 
 
-## Testing
+## Cost
 The total cost of the Lambda function is estimated to be about 0.01 USD/month, when the Lambda free usage tier is not included. 
 
 ## Output
