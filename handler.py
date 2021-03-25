@@ -29,6 +29,8 @@ def get_ec2_recovery_stats():
 
 def refresh_ec2_recovery_stats(check_last_update):
     check_account_id = boto3.client('sts').get_caller_identity()['Account']
+    check_region_code = boto3.session.Session().region_name
+
     running_instances = list_running_instances()
     auto_scaling_instances = list_auto_scaling_instances()
     alarm_instances = list_alarm_instances(auto_scaling_instances)
@@ -58,6 +60,7 @@ def refresh_ec2_recovery_stats(check_last_update):
     body = {
         'check_status_code': 200,
         'check_account_id': check_account_id,
+        'check_region_code': check_region_code,
         'check_last_update': check_last_update,
         'ec2_instance_counts': instance_counts,
         'ec2_recovery_ratios': recovery_ratios
