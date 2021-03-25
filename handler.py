@@ -9,9 +9,9 @@ check_refresh_seconds = 300  # 5 minutes
 check_last_update = datetime.datetime.now()
 
 def handler_name(event, context):
-    return get_ec2_recovery_stats(context.invoked_function_arn.split(':')[4])
+    return get_ec2_recovery_stats()
 
-def get_ec2_recovery_stats(check_account_id):
+def get_ec2_recovery_stats():
     global check_last_result
     global check_refresh_seconds
     global check_last_update
@@ -23,11 +23,12 @@ def get_ec2_recovery_stats(check_account_id):
 
     if len(check_last_result) == 0 or elapsed_seconds > check_refresh_seconds:
         check_last_update = datetime.datetime.now()
-        check_last_result = refresh_ec2_recovery_stats(check_account_id, check_last_update)
+        check_last_result = refresh_ec2_recovery_stats(check_last_update)
             
     return check_last_result
 
-def refresh_ec2_recovery_stats(check_account_id, check_last_update):
+def refresh_ec2_recovery_stats(check_last_update):
+    check_account_id = boto3.client('sts').get_caller_identity()['Account']
     running_instances = list_running_instances()
     auto_scaling_instances = list_auto_scaling_instances()
     alarm_instances = list_alarm_instances(auto_scaling_instances)
