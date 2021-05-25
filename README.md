@@ -40,7 +40,7 @@ Find below a sample of the Lambda function output
 }
 ```
 ## Regional Resiliency using Auto Scaling Groups 
-Auto Scaling Groups can help you automatically manage your scalability and resiliency needs across Availability Zones in a single Region. Follow the link below to know more about why and how to associate your EC2 instances with Auto Scaling Groups.<br/>
+Auto Scaling Groups can help you automatically manage your scalability and resiliency across multiple Availability Zones in a single Region. Follow the link below to know more about why and how to associate your EC2 instances with Auto Scaling Groups.<br/>
 Reference link: https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html
 
 ## Zonal Recovery using CloudWatch Alarms
